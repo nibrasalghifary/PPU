@@ -1,0 +1,199 @@
+/* ==========================================================================
+   1. STRUKTUR UTAMA & BACKGROUND (RESPONSIF & TENGAH)
+   ========================================================================== */
+.login-7a-frame-login7a {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-image: linear-gradient(135deg, #3240fc 0%, #883cdf 50%, #2934d0 100%);
+  position: relative;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Logo Elegan Transparan di Latar Belakang */
+.login-7a-frame-logo-s6 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.12;
+  box-sizing: border-box;
+  background-size: 25%;
+  background-image: url('../../assets/e0ce64eddb5ab9638fb8bb0f68f9fbcc.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   2. KOTAK FORM LOGIN (GLASSMORPHISM)
+   ========================================================================== */
+.login-7a-frame-rectangle1-oc {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Teks Welcome & Subtitle */
+.login-7a-text-welcome-db1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.login-7a-text-welcome-db2 {
+  color: #fff;
+  font-size: 32px;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.login-7a-text-login-ke-d21 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-7a-text-login-ke-d22 {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. FORM INPUTAN & TOMBOL (INTERAKTIF & RAPI)
+   ========================================================================== */
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Label Input */
+.login-7a-text-email-rz2,
+.login-7a-text-password6t2 {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Box Input Text / Password */
+.custom-input-field {
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0 16px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Instrument Sans", sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.custom-input-field::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.custom-input-field:focus {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Tombol Login */
+.custom-login-btn {
+  width: 100%;
+  height: 54px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 14px;
+  background-color: #ffffff;
+  color: #8060e0;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.custom-login-btn:hover {
+  background-color: #f0ecfc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.custom-login-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   4. LINK SIGN UP / DAFTAR DI BAWAH
+   ========================================================================== */
+#n2338 {
+  text-decoration: none;
+  margin-top: 24px;
+  transition: opacity 0.2s ease;
+}
+
+#n2338:hover {
+  opacity: 0.9;
+}
+
+.login-7a-text-belum-punya-kr2 {
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.login-7a-text1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.login-7a-text3 {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 4px;
+}
