@@ -9,38 +9,169 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppLaporanRouteImport } from './routes/_app/laporan'
+import { Route as AppKalkulatorRouteImport } from './routes/_app/kalkulator'
+import { Route as AppInformasiRouteImport } from './routes/_app/informasi'
+import { Route as AppDokumenRouteImport } from './routes/_app/dokumen'
+import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
+import { Route as AppBantuanRouteImport } from './routes/_app/bantuan'
 
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppLaporanRoute = AppLaporanRouteImport.update({
+  id: '/laporan',
+  path: '/laporan',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppKalkulatorRoute = AppKalkulatorRouteImport.update({
+  id: '/kalkulator',
+  path: '/kalkulator',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppInformasiRoute = AppInformasiRouteImport.update({
+  id: '/informasi',
+  path: '/informasi',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDokumenRoute = AppDokumenRouteImport.update({
+  id: '/dokumen',
+  path: '/dokumen',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBantuanRoute = AppBantuanRouteImport.update({
+  id: '/bantuan',
+  path: '/bantuan',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/bantuan': typeof AppBantuanRoute
+  '/dashboard': typeof AppDashboardRoute
+  '/dokumen': typeof AppDokumenRoute
+  '/informasi': typeof AppInformasiRoute
+  '/kalkulator': typeof AppKalkulatorRoute
+  '/laporan': typeof AppLaporanRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/bantuan': typeof AppBantuanRoute
+  '/dashboard': typeof AppDashboardRoute
+  '/dokumen': typeof AppDokumenRoute
+  '/informasi': typeof AppInformasiRoute
+  '/kalkulator': typeof AppKalkulatorRoute
+  '/laporan': typeof AppLaporanRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/_app/bantuan': typeof AppBantuanRoute
+  '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/dokumen': typeof AppDokumenRoute
+  '/_app/informasi': typeof AppInformasiRoute
+  '/_app/kalkulator': typeof AppKalkulatorRoute
+  '/_app/laporan': typeof AppLaporanRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/bantuan'
+    | '/dashboard'
+    | '/dokumen'
+    | '/informasi'
+    | '/kalkulator'
+    | '/laporan'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/bantuan'
+    | '/dashboard'
+    | '/dokumen'
+    | '/informasi'
+    | '/kalkulator'
+    | '/laporan'
+  id:
+    | '__root__'
+    | '/'
+    | '/_app'
+    | '/login'
+    | '/register'
+    | '/_app/bantuan'
+    | '/_app/dashboard'
+    | '/_app/dokumen'
+    | '/_app/informasi'
+    | '/_app/kalkulator'
+    | '/_app/laporan'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +179,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/laporan': {
+      id: '/_app/laporan'
+      path: '/laporan'
+      fullPath: '/laporan'
+      preLoaderRoute: typeof AppLaporanRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/kalkulator': {
+      id: '/_app/kalkulator'
+      path: '/kalkulator'
+      fullPath: '/kalkulator'
+      preLoaderRoute: typeof AppKalkulatorRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/informasi': {
+      id: '/_app/informasi'
+      path: '/informasi'
+      fullPath: '/informasi'
+      preLoaderRoute: typeof AppInformasiRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/dokumen': {
+      id: '/_app/dokumen'
+      path: '/dokumen'
+      fullPath: '/dokumen'
+      preLoaderRoute: typeof AppDokumenRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/dashboard': {
+      id: '/_app/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/bantuan': {
+      id: '/_app/bantuan'
+      path: '/bantuan'
+      fullPath: '/bantuan'
+      preLoaderRoute: typeof AppBantuanRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppBantuanRoute: typeof AppBantuanRoute
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppDokumenRoute: typeof AppDokumenRoute
+  AppInformasiRoute: typeof AppInformasiRoute
+  AppKalkulatorRoute: typeof AppKalkulatorRoute
+  AppLaporanRoute: typeof AppLaporanRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppBantuanRoute: AppBantuanRoute,
+  AppDashboardRoute: AppDashboardRoute,
+  AppDokumenRoute: AppDokumenRoute,
+  AppInformasiRoute: AppInformasiRoute,
+  AppKalkulatorRoute: AppKalkulatorRoute,
+  AppLaporanRoute: AppLaporanRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
